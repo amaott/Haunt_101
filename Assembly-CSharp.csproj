@@ -63,7 +63,8 @@
     <Compile Include="Assets\FromStore\Supercyan Character Pack Free Sample\Scripts\DemoFree.cs" />
     <Compile Include="Assets\FromStore\Supercyan Character Pack Free Sample\Scripts\FreeCameraLogic.cs" />
     <Compile Include="Assets\FromStore\Supercyan Character Pack Free Sample\Scripts\SimpleSampleCharacterControl.cs" />
-    <Compile Include="Assets\Scripts\CharacterControl.cs" />
+    <Compile Include="Assets\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <None Include="Assets\FromStore\Supercyan Character Pack Free Sample\Shaders\SupercyanShaderLighting.cginc" />
     <None Include="Assets\FromStore\Supercyan Character Pack Free Sample\Shaders\Legacy\CelShader.shader" />
     <None Include="Assets\FromStore\Supercyan Character Pack Free Sample\Shaders\SupercyanShader.shader" />
