@@ -4,4 +4,11 @@
 
 /Temp
 /obj/Debug
-/.vs/Haunt_101/v15
+/.vs
+/Library
+/obj
+/*.csproj
+*.suo
+/*.sln
+*.user
+*.unityproj
