@@ -8,23 +8,24 @@ public class PlayerMovement : MonoBehaviour
 	public float gravity = -9.81f;
 
 	bool doJump = false;
-	float jumpTimeStamp = 0;
-	[SerializeField] float minJumpInterval = 0.25f;
 
 	public Transform groundCheck;
 	public LayerMask groundMask;
+
 	public float groundDistance = 0.4f;
 
+	[SerializeField] float minJumpInterval = 0.25f;
 	[SerializeField] float jumpHeight = 1f;
+	[SerializeField] readonly float walkScale = 0.33f;
 
-	public CharacterController controller;
 	[SerializeField] Animator animator;
+	[SerializeField] CharacterController controller;
 
-	[SerializeField] private float currentX = 0;
-	[SerializeField] private float currentZ = 0;
-	private readonly float interpolation = 10;
-	private Vector3 currentDirection = Vector3.zero;
-	private readonly float walkScale = 0.33f;
+	float jumpTimeStamp = 0;
+	float currentX = 0;
+	float currentZ = 0;
+	readonly float interpolation = 10;
+	Vector3 currentDirection = Vector3.zero;
 
 	Vector3 velocity;
 	/// <summary>
