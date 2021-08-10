@@ -199,9 +199,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -326,6 +327,7 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -338,6 +340,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -527,7 +530,7 @@ GameObject:
   - component: {fileID: 8962911823077739855}
   - component: {fileID: 8962911823077739852}
   m_Layer: 0
-  m_Name: MisterTesterton 1 1
+  m_Name: MisterTesterton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -616,17 +619,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   gravity: -9.81
-  minJumpInterval: 0.25
   groundCheck: {fileID: 8962911822343180691}
   groundMask:
     serializedVersion: 2
     m_Bits: 512
   groundDistance: 0.4
+  minJumpInterval: 0.25
   jumpHeight: 1
-  controller: {fileID: 8962911823077739855}
   animator: {fileID: 9021121305815768797}
-  currentX: 0
-  currentZ: 0
+  controller: {fileID: 8962911823077739855}
 --- !u!1 &8963523973737239587
 GameObject:
   m_ObjectHideFlags: 0

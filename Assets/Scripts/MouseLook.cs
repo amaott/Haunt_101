@@ -8,8 +8,8 @@ public class MouseLook : MonoBehaviour
 	float rotationX = 0f;
 
 	public Transform playerBody;
-	// Start is called before the first frame update
-	void Start()
+	
+	private void Awake()
     {
 		Cursor.lockState = CursorLockMode.Locked;
     }
