@@ -9,10 +9,10 @@ public class PlayerController : MonoBehaviour
 
 	public float speed = 12f;
 	public float gravity = -9.81f;
+	public float pickupObjectScale = 0.2f;
+	public float groundDistance = 0.4f;
 
 	bool doJump = false;
-
-	public float groundDistance = 0.4f;
 
 	[SerializeField] float minJumpInterval = 0.25f;
 	[SerializeField] float jumpHeight = 1f;
@@ -22,14 +22,13 @@ public class PlayerController : MonoBehaviour
 	CharacterController controller;
 	Transform handTransform;
 	Vector3 velocity;
-
+	
 	float jumpTimeStamp = 0;
 	float currentX = 0;
 	float currentZ = 0;
 	float previousYPosition = 0;
 	readonly float interpolation = 10;
 	Vector3 currentDirection = Vector3.zero;
-	float pickupObjectScale = 0.2f;
 	bool pickedUpObjectThisFrame = false;
 	List<Collider> m_collisions = new List<Collider>();
 
@@ -54,7 +53,7 @@ public class PlayerController : MonoBehaviour
 			scale.Set(pickupObjectScale, pickupObjectScale, pickupObjectScale);
 			pickupObject.transform.localScale = scale;
 
-			pickupObject.GetComponent<BoxCollider>().enabled = false;
+			pickupObject.GetComponent<Collider>().enabled = false;
 			HeldObject = pickupObject;
 
 			pickedUpObjectThisFrame = true;
@@ -71,7 +70,7 @@ public class PlayerController : MonoBehaviour
 			scale.Set(1, 1, 1);
 			HeldObject.transform.localScale = scale;
 
-			HeldObject.GetComponent<BoxCollider>().enabled = true;
+			HeldObject.GetComponent<Collider>().enabled = true;
 			HeldObject = null;
 		}
 	}

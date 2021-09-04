@@ -9,17 +9,29 @@ public class Interactable : MonoBehaviour
 	[SerializeField] PlayerController playerScript;
 
 	public bool canBeGrabbed;
+	public float canBeGrabbed_Range = 2f;
 	GameObject handGameObject;
 	[SerializeField] float delay = .4f;
 
+	void CycleThroughGrasp() => CursorExtensions.CycleThroughGrasp();
+
+	bool PlayerCanReach => GetDistanceFromPlayer < canBeGrabbed_Range;
+
+	private float GetDistanceFromPlayer => Vector3.Distance(
+		transform.position,
+		playerTransform.position
+	);
+
 	private void Awake()
 	{
+		if (!playerTransform) playerTransform = GameObject.FindGameObjectWithTag("TestPlayer").GetComponent<Transform>();
 		if (!playerScript) playerScript = GameObject.FindGameObjectWithTag("TestPlayer").GetComponent<PlayerController>();
 	}
 
 	private void OnMouseEnter()
 	{
-		InvokeRepeating("CycleThroughGrasp", 0, delay);
+		if(PlayerCanReach)
+			InvokeRepeating("CycleThroughGrasp", 0, delay);
 	}
 
 	private void OnMouseExit()
@@ -28,13 +40,22 @@ public class Interactable : MonoBehaviour
 		Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
 	}
 
-	void CycleThroughGrasp() => CursorExtensions.CycleThroughGrasp();
-
 	private void OnMouseOver()
 	{
-		if (Input.GetKey(KeyCode.E))
+		if (Input.GetKey(KeyCode.E) && PlayerCanReach)
 		{
 			playerScript.PickUpObject(gameObject);
+		}
+
+		if(IsInvoking("CycleThroughGrasp"))
+		{
+			if (!PlayerCanReach)
+				Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+		}
+		else
+		{
+			if (PlayerCanReach)
+				InvokeRepeating("CycleThroughGrasp", 0, delay);
 		}
 	}
 }
