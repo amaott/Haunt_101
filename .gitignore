@@ -1,5 +1,6 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+# and is now commandeered 
 ################################################################################
 
 /Temp
@@ -12,3 +13,4 @@
 /*.sln
 *.user
 *.unityproj
+Assembly-CSharp.csproj
